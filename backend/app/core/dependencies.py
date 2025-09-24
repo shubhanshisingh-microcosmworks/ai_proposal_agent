@@ -8,7 +8,7 @@ from .database import users_collection
 from ..api.v1.models.user import UserInDB
 from pydantic import ValidationError
 
-oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/api/v1/login")
+oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/api/v1/endpoints/users/login")
 
 async def get_current_user(token: str = Depends(oauth2_scheme)) -> UserInDB:
     credentials_exception = HTTPException(
